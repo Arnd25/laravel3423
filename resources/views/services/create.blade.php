@@ -71,6 +71,5 @@
         </x-ui.container>
     </main>
     <x-footer/>
-
 </body>
 </html>
