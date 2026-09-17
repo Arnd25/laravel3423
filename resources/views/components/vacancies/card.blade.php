@@ -1,10 +1,10 @@
 <li class="rounded-2xl flex flex-col bg-gray-100 p-5 gap-15">
     <div class="flex flex-col w-full gap-5">
         <div class="flex justify-between w-full">
-            <img src="{{ asset('/storage/google.png') }}" alt="логотим" class="max-w-12 rounded-full p-2 border border-gray-300 ">
+            <img src="{{ asset('/storage/google.webp') }}" alt="логотим" class="max-w-12 rounded-full p-2 border border-gray-300 ">
             <button class="font-semibold h-fit text-black text-ms rounded-lg border-gray-200 bg-gray-200 border py-2 px-5 flex gap-1 items-center">
                 Saved
-                <img src="{{asset('storage/bookmark.svg')}}" alt="saved icon" class="w-5 h-5"/>
+                <img src="{{asset('storage/bookmark.png')}}" alt="saved icon" class="w-5 h-5"/>
             </button>
         </div>
         <div class="flex flex-col gap-2">

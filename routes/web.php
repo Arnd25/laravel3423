@@ -6,9 +6,13 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::prefix('service')->name('service.')->group(function () {
-    Route::get('/create', [\App\Http\Controllers\ServiceController::class, 'create'])->name('create');
-    Route::post('/', [\App\Http\Controllers\ServiceController::class, 'store'])->name('store');
-    Route::get('/', [\App\Http\Controllers\ServiceController::class, 'index'])->name('index');
-    Route::get('/{service}/show', [\App\Http\Controllers\ServiceController::class, 'show'])->name('show');
+Route::prefix('service')->controller(\App\Http\Controllers\ServiceController::class)->name('service.')->group(function () {
+    Route::post('/',  'store')->name('store');
+    Route::get('/',  'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::get('/{service}/show',  'show')->name('show');
+    Route::get('/{service}/edit',  'edit')->name('edit');
+    Route::put('/{service}/update',  'update')->name('update');
+
 });
+

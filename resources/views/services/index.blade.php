@@ -9,21 +9,33 @@
     <title>Список услуг</title>
 </head>
 <body>
-    <x-header/>
-    <main>
-        <x-ui.container>
-            <ul class="grid grid-cols-4">
-                @foreach($services as $service)
-                    <li class="">
-                        <span>{{$service->title}}</span>
-                        <br>
-                        <span>{{$service->price}}</span>
-                        <a href="{{route('service.show' , $service->id)}}">Подробнее</a>
-                    </li>
-                @endforeach
-            </ul>
-        </x-ui.container>
-    </main>
-    <x-footer/>
+<x-header/>
+<main>
+    <x-ui.container class="">
+        <ul class="grid grid-cols-4 gap-4 my-5">
+            @foreach($services as $service)
+                <li class="bg-sky-100 rounded-lg p-3 flex flex-col gap-2 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="{{asset('/storage/' . $service->image_path)}}" alt="Фотография услуги {{$service->id}}" width="255" height="255"
+                         class="rounded-lg w-full bg-sky-50 h-52 object-cover"/>
+                    <div class="flex flex-col bg-white p-2 rounded-lg">
+                        <h2 class="line-clamp-2 break-all text-xl font-semibold">
+                            {{ $service->title }}
+                        </h2>
+
+                        <p class="text-2xl font-bold text-blue-800 mb-2">
+                            {{ $service->price }}$
+                        </p>
+
+                        <p class="line-clamp-4 whitespace-pre-line break-all text-gray-600 text-sm border-t border-t-indigo-200 pt-2"
+                        >{{ $service->description }}</p>
+                    </div>
+                    <a class="bg-blue-500 rounded-lg py-1 mt-auto text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-blue-600" href="{{route('service.show' , $service->id)}}">Подробнее</a>
+
+                </li>
+            @endforeach
+        </ul>
+    </x-ui.container>
+</main>
+<x-footer/>
 </body>
 </html>

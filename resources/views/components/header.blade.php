@@ -1,5 +1,5 @@
 <header class="py-5 w-full bg-gray-50 border-b border-b-zinc-400">
-    <x-ui.container class="flex items-center justify-between">
+    <div class="max-w-6xl px-4 mx-auto flex items-center justify-between">
         <div class="">
             <a href="/" class="font-bold text-xl text-gray-900">my <span class="text-blue-600 uppercase">aaa</span></a>
         </div>
@@ -7,7 +7,7 @@
             <nav class="">
                 <menu class="flex items-center gap-4">
                     <li class=""><a href="#" class="uppercase text-gray-500 font-medium hover:text-gray-800 duration-300 transition-colors text-sm">Главаная</a></li>
-                    <li class=""><a href="{{route('service.index')}}" class="uppercase text-gray-500 font-medium hover:text-gray-800 duration-300 transition-colors text-sm">Услуги</a></li>
+                    <li class=""><a href="{{ route('service.index') }}" class="uppercase text-gray-500 font-medium hover:text-gray-800 duration-300 transition-colors text-sm">Услуги</a></li>
                     <li class=""><a href="#" class="uppercase text-gray-500 font-medium hover:text-gray-800 duration-300 transition-colors text-sm">Портфолио</a></li>
                     <li class=""><a href="#" class="uppercase text-gray-500 font-medium hover:text-gray-800 duration-300 transition-colors text-sm">Цены</a></li>
                 </menu>
@@ -18,5 +18,5 @@
                 </li>
             </ul>
         </div>
-    </x-ui.container>
+    </div>
 </header>
