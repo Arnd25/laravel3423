@@ -29,7 +29,10 @@
                         <p class="line-clamp-4 whitespace-pre-line break-all text-gray-600 text-sm border-t border-t-indigo-200 pt-2"
                         >{{ $service->description }}</p>
                     </div>
-                    <a class="bg-blue-500 rounded-lg py-1 mt-auto text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-blue-600" href="{{route('service.show' , $service->id)}}">Подробнее</a>
+                    <div class="flex gap-1.5 w-full mt-auto">
+                        <a class="bg-cyan-800 rounded-lg w-full py-1 text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-blue-600" href="{{route('service.edit' , $service->id)}}">Изменить</a>
+                        <a class="bg-blue-500 rounded-lg w-full py-1 text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-blue-600" href="{{route('service.show' , $service->id)}}">Подробнее</a>
+                    </div>
 
                 </li>
             @endforeach
