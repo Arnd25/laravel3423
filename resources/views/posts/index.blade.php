@@ -13,22 +13,27 @@
 <main>
     <x-ui.container class="">
         <ul class="grid grid-cols-4 gap-4 my-5">
-            @foreach($products as $product)
+            @foreach($posts as $post)
                 <li class="bg-sky-100 rounded-lg p-3 flex flex-col gap-2 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                    <img src="{{asset('/storage/' . $product->main_image)}}" alt="Фотография услуги {{$product->id}}" width="255" height="255"
+                    <img src="{{asset('/storage/' . $post->main_image)}}" alt="Фотография услуги {{$post->id}}" width="255" height="255"
                          class="rounded-lg w-full bg-sky-50 h-52 object-cover"/>
-                    <div class="flex flex-col bg-white p-2 rounded-lg">
-                        <h2 class="line-clamp-2 break-all text-xl font-semibold">
-                            {{ $product->title }}
+                    <div class="flex flex-col bg-white p-2 justify-center  rounded-lg">
+                        <h2 class="line-clamp-2 break-all text-xl font-semibold text-center">
+                            {{ $post->title }}
                         </h2>
+                        <div class="flex gap-1 justify-center flex-wrap  my-1">
+                            @foreach($post->tags as $tag)
+                                <p class="bg-blue-300 rounded-lg px-2 text-lg">{{$tag}}</p>
+                            @endforeach
+                        </div>
                         <p class="line-clamp-4 whitespace-pre-line break-all text-gray-600 text-sm border-t border-t-indigo-200 pt-2"
-                        >{{ $product->description }}</p>
+                        >{{ $post->description }}</p>
                     </div>
                     <div class="flex gap-1.5 w-full mt-auto">
-                        <a class="bg-cyan-800 rounded-lg w-full py-1 text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-blue-600" href="{{route('products.edit' , $product->id)}}">Изменить</a>
-                        <a class="bg-blue-500 rounded-lg w-full py-1 text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-blue-600" href="{{route('products.show' , $product->id)}}">Подробнее</a>
+                        <a class="bg-cyan-800 rounded-lg w-full py-1 text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-blue-600" href="{{route('posts.edit' , $post->id)}}">Изменить</a>
+                        <a class="bg-blue-500 rounded-lg w-full py-1 text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-blue-600" href="{{route('posts.show' , $post->id)}}">Подробнее</a>
                     </div>
-                    <form action="{{route('products.delete', $product->id)}}" method="post">
+                    <form action="{{route('posts.delete', $post->id)}}" method="post">
                         @csrf
                         @method('DELETE')
                         <button class="bg-red-800/40 rounded-lg w-full py-1 text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-red-700" type="submit">Удалить</button>

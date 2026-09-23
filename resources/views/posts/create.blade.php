@@ -6,42 +6,37 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>Создание услуги</title>
+    <title>Создание статьи</title>
 </head>
 <body>
 <x-header/>
 <main>
     <x-ui.container class="flex flex-col items-center">
-        @if (session('success'))
-            <div class="fixed right-6 top-26 z-99 rounded-xl bg-green-50 px-5 py-4 text-green-700 shadow-lg">
-                Услуга создана
-            </div>
-        @endif
-        <form class="flex flex-col w-xl bg-sky-200 p-4 rounded-lg shadow-xl gap-2 mt-20" action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="flex flex-col w-xl bg-sky-200 p-4 rounded-lg shadow-xl gap-2 mt-20" action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
-            <h1 class="text-3xl text-center">Создание услуги</h1>
+            <h1 class="text-3xl text-center">Создание статьи</h1>
             <div class="flex flex-col gap-1">
                 <div class="flex justify-between">
-                    <label for="title">Название услуги*</label>
+                    <label for="title">Название статьи*</label>
                     @error('title')
                     <div class="text-red-600">
                         {{$message}}
                     </div>
                     @enderror
                 </div>
-                <input class="bg-white rounded-lg p-2" name="title" type="text" placeholder="Введите название услуги">
+                <input class="bg-white rounded-lg p-2" name="title" type="text" placeholder="Введите название статьи">
             </div>
             <div class="flex flex-col gap-1">
                 <div class="flex justify-between">
-                    <label for="title">Описание услуги*</label>
+                    <label for="title">Описание статьи*</label>
                     @error('description')
                     <div class="text-red-600">
                         {{$message}}
                     </div>
                     @enderror
                 </div>
-                <textarea rows="5" class="bg-white rounded-lg p-2" name="description" type="text" placeholder="Введите описание услуги"></textarea>
+                <textarea rows="5" class="bg-white rounded-lg p-2" name="description" type="text" placeholder="Введите описание статьи"></textarea>
             </div>
             <div class="flex flex-col gap-1">
                 <div class="flex justify-between">
@@ -52,11 +47,11 @@
                     </div>
                     @enderror
                 </div>
-                <textarea rows="15" class="bg-white rounded-lg p-2" name="content" type="text" placeholder="Введите описание услуги"></textarea>
+                <textarea rows="15" class="bg-white rounded-lg p-2" name="content" type="text" placeholder="Введите контент статьи"></textarea>
             </div>
             <div class="flex flex-col gap-1">
                 <div class="flex justify-between">
-                    <label for="title">Фотография услуги*</label>
+                    <label for="title">Фотография статьи*</label>
                     @error('main_image')
                     <div class="text-red-600">
                         {{$message}}
@@ -67,18 +62,18 @@
             </div>
             <div class="flex flex-col gap-1">
                 <div class="flex justify-between">
-                    <label for="title">Теги услуги*</label>
+                    <label for="title">Теги статьи*</label>
                     @error('tags')
                     <div class="text-red-600">
                         {{$message}}
                     </div>
                     @enderror
                 </div>
-                <input class="bg-white rounded-lg p-2" name="tags" type="text" placeholder="Введите название услуги">
+                <input class="bg-white rounded-lg p-2" name="tags" type="text" placeholder="Введите название статьи">
             </div>
             <div class="flex flex-col gap-1">
                 <div class="flex justify-between">
-                    <label for="title">Фотографии услуги*</label>
+                    <label for="title">Дополнительные фотографии статьи*</label>
                     @error('additional_images')
                     <div class="text-red-600">
                         {{$message}}

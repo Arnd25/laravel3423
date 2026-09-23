@@ -2,20 +2,20 @@
 
 namespace App\DTOs;
 
-use App\Http\Requests\UpdateProductRequest;
+use App\Http\Requests\StorePostRequest;
 use Illuminate\Http\UploadedFile;
 
-class UpdateProductData
+class PostData
 {
     public function __construct(
         public string $title,
         public string $description,
         public string  $content,
-        public ?UploadedFile $main_image,
-        public ?array $additional_images,
-        public ?array $tags
+        public UploadedFile $main_image,
+        public array $additional_images,
+        public array $tags
     ) {}
-    public static function fromRequest(UpdateProductRequest $request) {
+    public static function fromRequest(StorePostRequest $request) {
         return new self(
             title: $request->validated('title'),
             description: $request->validated('description'),

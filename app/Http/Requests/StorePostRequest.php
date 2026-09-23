@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateProductRequest extends FormRequest
+class StorePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,7 @@ class UpdateProductRequest extends FormRequest
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'min:10'],
             'content' => ['required', 'string', 'min:0'],
-            'main_image' => ['nullable', 'image', 'mimes:jpeg,jpg,png,webp', 'max:2048'],
+            'main_image' => ['required', 'image', 'mimes:jpeg,jpg,png,webp', 'max:2048'],
             'additional_images' => ['nullable', 'array', 'max:4'],
             'additional_images.*' => ['nullable', 'image', 'mimes:jpeg,jpg,png,webp', 'max:2048'],
             'tags' => ['nullable', 'string', 'max:255'],

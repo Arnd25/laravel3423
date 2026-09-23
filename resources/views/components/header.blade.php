@@ -8,7 +8,7 @@
                 <menu class="flex items-center gap-4">
                     <li class=""><a href="#" class="uppercase text-gray-500 font-medium hover:text-gray-800 duration-300 transition-colors text-sm">Главаная</a></li>
                     <li class=""><a href="{{ route('service.index') }}" class="uppercase text-gray-500 font-medium hover:text-gray-800 duration-300 transition-colors text-sm">Услуги</a></li>
-                    <li class=""><a href="{{route('products.index')}}" class="uppercase text-gray-500 font-medium hover:text-gray-800 duration-300 transition-colors text-sm">Статьи</a></li>
+                    <li class=""><a href="{{route('posts.index')}}" class="uppercase text-gray-500 font-medium hover:text-gray-800 duration-300 transition-colors text-sm">Статьи</a></li>
                     <li class=""><a href="#" class="uppercase text-gray-500 font-medium hover:text-gray-800 duration-300 transition-colors text-sm">Цены</a></li>
                 </menu>
             </nav>
