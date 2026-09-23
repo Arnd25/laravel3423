@@ -33,7 +33,11 @@
                         <a class="bg-cyan-800 rounded-lg w-full py-1 text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-blue-600" href="{{route('service.edit' , $service->id)}}">Изменить</a>
                         <a class="bg-blue-500 rounded-lg w-full py-1 text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-blue-600" href="{{route('service.show' , $service->id)}}">Подробнее</a>
                     </div>
-
+                    <form action="{{route('service.delete', $service->id)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="bg-red-800/40 rounded-lg w-full py-1 text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-red-700" type="submit">Удалить</button>
+                    </form>
                 </li>
             @endforeach
         </ul>

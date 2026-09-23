@@ -60,4 +60,12 @@ class ServiceController extends Controller
         return redirect()->route('service.index')->with('success', 'Данные сохраненны!');
     }
 
+    public function delete(Service $service)
+    {
+        if ($service->image_path && Storage::disk('public')->exists($service->image_path)) {
+            Storage::disk('public')->delete($service->image_path);
+        }
+        $service->delete();
+        return redirect()->route('service.index');
+    }
 }

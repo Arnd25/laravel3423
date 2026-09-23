@@ -13,6 +13,6 @@ Route::prefix('service')->controller(\App\Http\Controllers\ServiceController::cl
     Route::get('/{service}/show',  'show')->name('show');
     Route::get('/{service}/edit',  'edit')->name('edit');
     Route::put('/{service}/update',  'update')->name('update');
-
+    Route::delete('{service}/delete',  'delete')->name('delete');
 });
 
