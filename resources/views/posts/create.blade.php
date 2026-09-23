@@ -20,7 +20,7 @@
                 <div class="flex justify-between">
                     <label for="title">Название статьи*</label>
                     @error('title')
-                    <div class="text-red-600">
+                    <div class="text-red-600 text-right">
                         {{$message}}
                     </div>
                     @enderror
@@ -31,7 +31,7 @@
                 <div class="flex justify-between">
                     <label for="title">Описание статьи*</label>
                     @error('description')
-                    <div class="text-red-600">
+                    <div class="text-red-600 text-right">
                         {{$message}}
                     </div>
                     @enderror
@@ -42,7 +42,7 @@
                 <div class="flex justify-between">
                     <label for="content">Контент статьи*</label>
                     @error('content')
-                    <div class="text-red-600">
+                    <div class="text-red-600 text-right">
                         {{$message}}
                     </div>
                     @enderror
@@ -53,7 +53,7 @@
                 <div class="flex justify-between">
                     <label for="title">Фотография статьи*</label>
                     @error('main_image')
-                    <div class="text-red-600">
+                    <div class="text-red-600 text-right">
                         {{$message}}
                     </div>
                     @enderror
@@ -64,7 +64,7 @@
                 <div class="flex justify-between">
                     <label for="title">Теги статьи*</label>
                     @error('tags')
-                    <div class="text-red-600">
+                    <div class="text-red-600 text-right">
                         {{$message}}
                     </div>
                     @enderror
@@ -75,7 +75,7 @@
                 <div class="flex justify-between">
                     <label for="title">Дополнительные фотографии статьи*</label>
                     @error('additional_images')
-                    <div class="text-red-600">
+                    <div class="text-red-600 text-right ">
                         {{$message}}
                     </div>
                     @enderror

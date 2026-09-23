@@ -25,11 +25,11 @@ class StorePostRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'min:10'],
-            'content' => ['required', 'string', 'min:0'],
+            'content' => ['required', 'string', 'min:20'],
             'main_image' => ['required', 'image', 'mimes:jpeg,jpg,png,webp', 'max:2048'],
-            'additional_images' => ['nullable', 'array', 'max:4'],
-            'additional_images.*' => ['nullable', 'image', 'mimes:jpeg,jpg,png,webp', 'max:2048'],
-            'tags' => ['nullable', 'string', 'max:255'],
+            'additional_images' => ['required', 'array', 'max:4'],
+            'additional_images.*' => ['required', 'image', 'mimes:jpeg,jpg,png,webp', 'max:2048'],
+            'tags' => ['required', 'string', 'max:255'],
         ];
     }
 }

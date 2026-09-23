@@ -12,7 +12,7 @@
 <x-header/>
 <main>
     <x-ui.container class="my-10 flex flex-col">
-        <a href="{{url()->previous()}}" class="text-xl bg-blue-500 text-white px-5 py-2 rounded-lg mb-5 w-fit flex gap-1">
+        <a href="{{route('posts.index')}}" class="text-xl bg-blue-500 text-white px-5 py-2 rounded-lg mb-5 w-fit flex gap-1">
             <img class="invert rotate-90 w-6" src="{{asset('storage/arrow.svg')}}" alt=""> Вернуться</a>
         <div class="gap-8 flow-root px-8 py-5 bg-indigo-50 rounded-xl">
             <img

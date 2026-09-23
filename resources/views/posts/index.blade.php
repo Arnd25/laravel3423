@@ -11,7 +11,9 @@
 <body>
 <x-header/>
 <main>
-    <x-ui.container class="">
+    <x-ui.container class="flex flex-col py-5">
+        <a class="self-center bg-blue-500 text-white py-3 px-5 font-medium rounded-xl" href="{{route('posts.create')}}">Добавить</a>
+
         <ul class="grid grid-cols-4 gap-4 my-5">
             @foreach($posts as $post)
                 <li class="bg-sky-100 rounded-lg p-3 flex flex-col gap-2 transition-all duration-300 hover:scale-105 hover:shadow-xl">
@@ -31,13 +33,16 @@
                     </div>
                     <div class="flex gap-1.5 w-full mt-auto">
                         <a class="bg-cyan-800 rounded-lg w-full py-1 text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-blue-600" href="{{route('posts.edit' , $post->id)}}">Изменить</a>
-                        <a class="bg-blue-500 rounded-lg w-full py-1 text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-blue-600" href="{{route('posts.show' , $post->id)}}">Подробнее</a>
+                        <form action="{{route('posts.delete', $post->id)}}"
+                              class="w-full"
+                              method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="bg-red-800/40 rounded-lg w-full py-1 text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-red-700" type="submit">Удалить</button>
+                        </form>
                     </div>
-                    <form action="{{route('posts.delete', $post->id)}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button class="bg-red-800/40 rounded-lg w-full py-1 text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-red-700" type="submit">Удалить</button>
-                    </form>
+                    <a class="bg-blue-500 rounded-lg w-full py-1 text-center text-lg font-medium cursor-pointer transition-colors duration-300 text-white hover:bg-blue-600" href="{{route('posts.show' , $post->id)}}">Подробнее</a>
+
                 </li>
             @endforeach
         </ul>
