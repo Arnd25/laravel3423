@@ -73,7 +73,7 @@ class PostController extends Controller
         $post->update($data);
         return redirect()->route('posts.index')->with('success', 'Данные сохраненны!');
     }
-    public function delete(post $post)
+    public function destroy(post $post)
     {
         if ($post->main_image && Storage::disk('public')->exists($post->main_image)) {
             Storage::disk('public')->delete($post);

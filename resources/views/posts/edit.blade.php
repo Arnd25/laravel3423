@@ -11,86 +11,97 @@
 <body>
 <x-header/>
 <main>
-    <x-ui.container class="flex flex-col items-center">
-        <form class="flex flex-col w-xl bg-sky-200 p-4 rounded-lg shadow-xl gap-2 my-10"
+    <x-ui.container class="flex flex-col py-5 gap-5">
+        <a href="{{route('posts.index')}}" class="text-xl bg-indigo-500 text-white px-5 py-2 rounded-lg w-fit flex gap-1">
+            <img class="invert rotate-90 w-6" src="{{asset('storage/arrow.svg')}}" alt=""> Вернуться
+        </a>
+        <form class="flex flex-col bg-indigo-200 p-4 rounded-lg shadow-xl gap-2 "
               action="{{ route('posts.update', $post) }}"
               method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <h1 class="text-3xl text-center font-medium">Изменение статьи</h1>
-            <div class="flex flex-col gap-1">
-                <div class="flex justify-between">
-                    <label for="title">Название статьи*</label>
-                    @error('title')
-                    <div class="text-red-600">
-                        {{$message}}
-                    </div>
-                    @enderror
-                </div>
-                <input class="bg-white rounded-lg p-2" name="title" type="text" value="{{old('title', $post->title)}}" placeholder="Введите название статьи">
-            </div>
-            <div class="flex flex-col gap-1">
-                <div class="flex justify-between">
-                    <label for="title">Описание статьи*</label>
-                    @error('description')
-                    <div class="text-red-600">
-                        {{$message}}
-                    </div>
-                    @enderror
-                </div>
-                <textarea rows="5" class="bg-white rounded-lg p-2" name="description" type="text" placeholder="Введите описание статьи">{{old('description', $post->description)}}</textarea>
-            </div>
-            <div class="flex flex-col gap-1">
-                <div class="flex justify-between">
-                    <label for="title">Контент статьи*</label>
-                    @error('content')
-                    <div class="text-red-600">
-                        {{$message}}
-                    </div>
-                    @enderror
-                </div>
-                <textarea rows="15" class="bg-white rounded-lg p-2" name="content" type="text" placeholder="Введите контент статьи">{{old('description', $post->content)}}</textarea>
-            </div>
-            <div class="flex flex-col gap-1">
-                <div class="flex justify-between">
-                    <label for="title">Теги статьи*</label>
-                    @error('tags')
-                    <div class="text-red-600">
-                        {{$message}}
-                    </div>
-                    @enderror
-                </div>
-                <input class="bg-white rounded-lg p-2" name="tags" type="text" value="{{old('tags', implode(',', $post->tags))}}" placeholder="Введите название статьи">
-            </div>
-            <div class="flex flex-col gap-1">
-                <div class="flex justify-between">
-                    <label for="title">Фотография статьи*</label>
-                    @error('main_image')
-                    <div class="text-red-600">
-                        {{$message}}
-                    </div>
-                    @enderror
-                </div>
-                <div class="w-full flex mb-4">
-                    <img width="50" height="50" src="{{asset('storage/'. $post->main_image)}}" alt="Изображение усулуги"/>
-                    <input class="bg-white rounded-lg w-full p-2 cursor-pointer file:bg-sky-400 file:transition-colors file:duration-300 file:text-white file:px-4 file:py-1 file:hover:bg-sky-400/60 file:rounded-lg" name="main_image" type="file">
-                </div>
-                <div class="w-full">
-                    @error('additional_images')
-                    <div class="text-red-600">
-                        {{$message}}
-                    </div>
-                    @enderror
-                    <div class="flex gap-2 w-full">
-                        @foreach($post->additional_images as $image)
-                            <img width="50" height="50" src="{{asset('storage/'. $image)}}" alt="Изображение усулуги"/>
 
-                        @endforeach
+            <div class="grid grid-cols-2 gap-2">
+                <div class="flex flex-col gap-2">
+                    <div class="flex flex-col gap-1">
+                        <div class="flex  justify-between">
+                            <label class="font-medium" for="title">Название статьи*</label>
+                            @error('title')
+                            <div class="text-red-600">
+                                {{$message}}
+                            </div>
+                            @enderror
+                        </div>
+                        <input class="bg-white rounded-lg p-2" name="title" type="text" value="{{old('title', $post->title)}}" placeholder="Введите название статьи">
                     </div>
-                    <input class="bg-white rounded-lg w-full p-2 cursor-pointer file:bg-sky-400 file:transition-colors file:duration-300 file:text-white file:px-4 file:py-1 file:hover:bg-sky-400/60 file:rounded-lg" name="additional_images" type="file" multiple>
+                    <div class="flex flex-col gap-1">
+                        <div class="flex justify-between">
+                            <label class="font-medium" for="title">Описание статьи*</label>
+                            @error('description')
+                            <div class="text-red-600">
+                                {{$message}}
+                            </div>
+                            @enderror
+                        </div>
+                        <textarea rows="5" class="bg-white rounded-lg p-2" name="description" type="text" placeholder="Введите описание статьи">{{old('description', $post->description)}}</textarea>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <div class="flex justify-between">
+                            <label class="font-medium" for="title">Теги статьи(через ",")*</label>
+                            @error('tags')
+                            <div class="text-red-600">
+                                {{$message}}
+                            </div>
+                            @enderror
+                        </div>
+                        <input class="bg-white rounded-lg p-2" name="tags" type="text" value="{{old('tags', implode(',', $post->tags))}}" placeholder="Введите название статьи">
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <div class="flex justify-between">
+                            <label class="font-medium" for="title">Фотография статьи*</label>
+                            @error('main_image')
+                            <div class="text-red-600">
+                                {{$message}}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="w-full flex mb-4 gap-2">
+                            <img width="50" height="50" src="{{asset('storage/'. $post->main_image)}}" class="rounded-lg object-contain" alt="Изображение усулуги"/>
+                            <input class="bg-white rounded-lg w-full p-2 cursor-pointer file:bg-indigo-400 file:transition-colors file:duration-300 file:text-white file:px-4 file:py-1 file:hover:bg-indigo-400/60 file:rounded-lg" name="main_image" type="file">
+                        </div>
+                        <div class="w-full">
+                            @error('additional_images')
+                            <div class="text-red-600">
+                                {{$message}}
+                            </div>
+                            @enderror
+
+                            <input class="bg-white rounded-lg w-full p-2 mb-2 cursor-pointer file:bg-indigo-400 file:transition-colors file:duration-300 file:text-white file:px-4 file:py-1 file:hover:bg-indigo-400/60 file:rounded-lg" name="additional_images[]" type="file" multiple>
+                            <div class="flex gap-2 w-full">
+                                @foreach($post->additional_images as $image)
+                                    <img width="100" height="100" src="{{asset('storage/'. $image)}}" alt="Изображение усулуги" class="rounded-lg object-contain"/>
+
+                                @endforeach
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-               </div>
-            <button type="submit" class="bg-sky-400 text-white py-1 cursor-pointer transition-colors duration-300 hover:bg-blue-300 font-medium rounded-lg text-lg">Сохранить</button>
+                <div class="flex flex-col gap-1">
+                    <div class="flex justify-between">
+                        <label class="font-medium" for="title">Контент статьи*</label>
+                        @error('content')
+                        <div class="text-red-600">
+                            {{$message}}
+                        </div>
+                        @enderror
+                    </div>
+                    <textarea class="bg-white rounded-lg p-2 h-full" name="content" type="text" placeholder="Введите контент статьи">{{old('description', $post->content)}}</textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="bg-indigo-400 text-white py-1 cursor-pointer transition-colors duration-300 hover:bg-indigo-800 font-medium rounded-lg text-lg">Сохранить</button>
         </form>
     </x-ui.container>
 </main>
