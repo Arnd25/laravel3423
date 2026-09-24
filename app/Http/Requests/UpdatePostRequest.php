@@ -29,7 +29,7 @@ class UpdatePostRequest extends FormRequest
             'main_image' => ['nullable', 'image', 'mimes:jpeg,jpg,png,webp', 'max:2048'],
             'additional_images' => ['nullable', 'array', 'max:4'],
             'additional_images.*' => ['nullable', 'image', 'mimes:jpeg,jpg,png,webp', 'max:2048'],
-            'tags' => ['nullable', 'string', 'max:255'],
+            'tags' => ['required', 'string', 'max:255'],
         ];
     }
 }

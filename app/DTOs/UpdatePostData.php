@@ -13,7 +13,7 @@ class UpdatePostData
         public string  $content,
         public ?UploadedFile $main_image,
         public ?array $additional_images,
-        public ?array $tags
+        public array $tags
     ) {}
     public static function fromRequest(UpdatePostRequest $request) {
         return new self(
